@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  nodestore:
+    container_name: nodestore
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    volumes:
+      - "./api:/src/api"
+    ports:
+      - "8000:3000"
+  reactstore:
+    container_name: reactstore
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    volumes:
+      - "./client:/src"
+    ports:
+      - "3000:3000"
+    depends_on: [ nodestore ]
