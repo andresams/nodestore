@@ -6,6 +6,7 @@ const logger = require('morgan');
 const bodyParser = require('body-parser');
 const routes = require('./routes/index');
 const products = require('./routes/products');
+const categories = require('./routes/categories');
 const connectDatabase = require('./config/mongo');
 
 connectDatabase();
@@ -21,6 +22,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use('/', routes);
 app.use('/products', products);
+app.use('/categories', categories);
 
 /**
  * Catch 404 errors and move to the error handler
