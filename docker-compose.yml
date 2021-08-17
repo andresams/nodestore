@@ -10,6 +10,23 @@ services:
       - "./api:/src/api"
     ports:
       - "8000:3000"
+    environment:
+      - NODE_ENV=development
+      - MONGO_SERVER=mongostore
+      - MONGO_DB=store
+      - MONGO_PORT=27017
+    depends_on: [ mongostore ]
+  mongoseed:
+    container_name: mongoseed
+    build: ./mongoseed
+    depends_on: [ mongostore ]
+  mongostore:
+    container_name: mongostore
+    image: mongo
+    ports:
+      - '27018:27017'
+    volumes:
+      - ./data/db:/data/db
   reactstore:
     container_name: reactstore
     build:
