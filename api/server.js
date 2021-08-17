@@ -1,8 +1,8 @@
-var debug = require('debug')('app');
-var app = require('app');
+const debug = require('debug')('app');
+const app = require('./app');
 
 app.set('port', process.env.PORT || 3000);
 
-var server = app.listen(app.get('port'), function() {
-    debug('Express server listening on port ' + server.address().port);
+const server = app.listen(app.get('port'), () => {
+  debug(`NodeJS Express server running on port ${server.address().port}`);
 });
