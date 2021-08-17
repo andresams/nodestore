@@ -14,7 +14,7 @@ router.get('/', async (req, res) => {
     if (category) {
       filter.category_id = category;
     }
-    const products = await Product.find(filter);
+    const products = await Product.find(filter).populate('category_id', 'name');
     res.status(200).send(products);
   } catch (error) {
     console.log(error);

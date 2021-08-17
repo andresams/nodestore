@@ -2,11 +2,9 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 
+const Product = require('./product');
+
 const categorySchema = Schema({
-  id: {
-    type: Number,
-    required: true,
-  },
   _id: {
     type: Number,
     required: true,
