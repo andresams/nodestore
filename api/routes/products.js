@@ -30,7 +30,7 @@ router.get('/:id', async (req, res) => {
     const product = await Product.findOne({
       _id: req.params.id,
     });
-    res.status(200).send(product);
+    res.status(200).send({ product });
   } catch (error) {
     console.log(error);
     res.status(404).send('An error has happened while trying to list the products.');

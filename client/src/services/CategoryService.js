@@ -3,12 +3,12 @@
  * @returns {Promise<*[]|any>}
  */
 export async function getAllCategories() {
-    try {
-        const response = await fetch('/categories');
-        return await response.json();
-    } catch (error) {
-        return [];
-    }
+  try {
+    const response = await fetch('/categories');
+    return await response.json();
+  } catch (error) {
+    return [];
+  }
 }
 
 /**
@@ -17,10 +17,10 @@ export async function getAllCategories() {
  * @returns {Promise<*[]|any>}
  */
 export async function getSingleCategory(id) {
-    try {
-        const category = await fetch(`/categories/${id}/products`);
-        return await category.json();
-    } catch (error) {
-        return [];
-    }
+  try {
+    const category = await fetch(`/categories/${id}/products`);
+    return await category.json();
+  } catch (error) {
+    return [];
+  }
 }

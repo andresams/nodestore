@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Redirect } from 'react-router-dom';
 import { Products } from '../components/Products';
 import { CategoryHeader } from '../components/CategoryHeader';
 import { getSingleCategory } from '../services/CategoryService';
@@ -21,6 +21,10 @@ function Category() {
         setCategory(response.category);
       });
   }, [id]);
+
+  if (!category) {
+    return <Redirect to="/" />;
+  }
 
   return (
         <div>

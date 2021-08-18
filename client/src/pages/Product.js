@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { Redirect, useParams } from 'react-router-dom';
 import { Product } from '../components/Product';
 import { getSingleProduct } from '../services/ProductService';
 
@@ -18,6 +18,10 @@ function ProductPage() {
         setProduct(item);
       });
   }, [id]);
+
+  if (!product) {
+    return <Redirect to="/" />;
+  }
 
   return (
             <div className="container">
