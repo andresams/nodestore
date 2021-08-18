@@ -23,20 +23,20 @@ export const Header = ({categories}) => {
     return(
         <div className="globalHeader">
             <div className="row">
-                <div className="col text-left">
+                <div className="col">
                     <div className="row">
-                        <div className="ml-2">
+                        <div className="ms-1">
                             <Menu>
                                 <a id="categories-title" className="menu-item" href="/#">Categories</a>
                                 {categoriesList}
                             </Menu>
                         </div>
-                        <div className="ml-5">
+                        <div className="ms-5">
                             <h1>Andresa's Basic Shop</h1>
                         </div>
                     </div>
                 </div>
-                    <div className="col text-right"><a href="/#" className="btn btn-success bi bi-align-bottom"><MiniCart/></a></div>
+                    <div className="col text-end"><a href="/#" className="minicart btn btn-success bi bi-align-bottom text-end"><MiniCart/></a></div>
             </div>
         </div>
     )

@@ -33,7 +33,7 @@ function App() {
                     onItemRemove={() => console.log(`Item removed!`)}
                 >
                     <Header categories={ categories }></Header>
-                    <div className="row" id="main">
+                    <div className="container">
                         <div>
                             <ToastContainer className="p-3" position={ "top-center" }>
                                 <Toast position={ "top-end" } onClose={() => setShow(false)} show={ show } delay={ 3000 } autohide>
@@ -53,5 +53,6 @@ function App() {
         </BrowserRouter>
     );
 }
+
 
 export default App;
