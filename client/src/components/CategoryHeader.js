@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 /**
  * Category page header
@@ -6,18 +6,19 @@ import React from 'react'
  * @returns {*}
  * @constructor
  */
-export const CategoryHeader = ({category}) => {
-    const CategoryHeader = (category) => {
-        const image = `/images/${category.image_id}.jpg`;
+// eslint-disable-next-line import/prefer-default-export
+export const CategoryHeader = ({ category }) => {
+  const HeaderContent = (cat) => {
+    const image = `/images/${cat.image_id}.jpg`;
 
-        return (
+    return (
             <div className="row">
                 <div className="col">
-                    <img className="crop-thumbnail" src={image} alt={category.name}/>
+                    <img className="crop-thumbnail" src={image} alt={cat.name}/>
                 </div>
                 <div className="col">
                     <div className="row">
-                        <h2 className="text-left">{category.name}</h2>
+                        <h2 className="text-left">{cat.name}</h2>
                     </div>
                     <div className="row">
                         <p className="text-left">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
@@ -26,8 +27,8 @@ export const CategoryHeader = ({category}) => {
                     </div>
                 </div>
             </div>
-        )
-    }
+    );
+  };
 
-    return CategoryHeader(category)
-}
+  return HeaderContent(category);
+};

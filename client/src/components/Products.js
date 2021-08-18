@@ -8,16 +8,19 @@ import { useCart } from 'react-use-cart';
  * @returns {JSX.Element|null}
  * @constructor
  */
-export const Products = ({products}) => {
-    const { addItem } = useCart();
-    if (products.length === 0) return null
+// eslint-disable-next-line import/prefer-default-export
+export const Products = ({ products }) => {
+  const { addItem } = useCart();
+  if (products.length === 0) return null;
 
-    const ProductCard = (product,index) => {
-        const image = `/images/${product.image_id}.jpg`;
-        const productUrl = `/product/${product._id}`;
-        product.id = product._id;
+  const ProductCard = (product, index) => {
+    const image = `/images/${product.image_id}.jpg`;
+    // eslint-disable-next-line no-underscore-dangle
+    const productUrl = `/product/${product._id}`;
+    // eslint-disable-next-line no-param-reassign,no-underscore-dangle
+    product.id = product._id;
 
-        return (
+    return (
             <div className="col-6 mb-4" key={index}>
                 <div className="p-4 border">
                     <div className="col-xs-12" >
@@ -32,16 +35,16 @@ export const Products = ({products}) => {
                     </div>
                 </div>
             </div>
-        )
-    }
+    );
+  };
 
-    const productGrid = products.map((product,index) => ProductCard(product,index))
+  const productGrid = products.map((product, index) => ProductCard(product, index));
 
-    return(
+  return (
         <div className="container">
             <div className="row row-cols-1 row-cols-lg-3 g-1 g-lg-3">
                 {productGrid}
             </div>
         </div>
-    )
-}
+  );
+};

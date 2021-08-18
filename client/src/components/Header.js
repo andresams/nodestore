@@ -1,6 +1,6 @@
 import React from 'react';
 import { slide as Menu } from 'react-burger-menu';
-import { MiniCart } from "./MiniCart";
+import { MiniCart } from './MiniCart';
 
 /**
  * Global Site Header with Minicart
@@ -8,19 +8,18 @@ import { MiniCart } from "./MiniCart";
  * @returns {JSX.Element}
  * @constructor
  */
-export const Header = ({categories}) => {
-
-    const MenuItem = (category,index) => {
-        const categoryId = `category-${category._id}`;
-        const url = `/category/${category._id}`;
-        return (
+export const Header = ({ categories }) => {
+  const MenuItem = (category, index) => {
+    const categoryId = `category-${category._id}`;
+    const url = `/category/${category._id}`;
+    return (
             <a id={categoryId} key={category._id} className="menu-item" href={url}>{category.name}</a>
-        )
-    }
+    );
+  };
 
-    const categoriesList = categories.map((category,index) => MenuItem(category,index))
+  const categoriesList = categories.map((category, index) => MenuItem(category, index));
 
-    return(
+  return (
         <div className="globalHeader">
             <div className="row">
                 <div className="col">
@@ -39,5 +38,5 @@ export const Header = ({categories}) => {
                     <div className="col text-end"><a href="/#" className="minicart btn btn-success bi bi-align-bottom text-end"><MiniCart/></a></div>
             </div>
         </div>
-    )
-}
+  );
+};

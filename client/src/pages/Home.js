@@ -8,17 +8,16 @@ import { getAllProducts } from '../services/ProductService';
  * @constructor
  */
 function Home() {
-    const [products, setProducts] = useState([])
+  const [products, setProducts] = useState([]);
 
-    useEffect(() => {
-        getAllProducts()
-            .then(products => {
-                console.log(products)
-                setProducts(products)
-            });
-    }, [])
+  useEffect(() => {
+    getAllProducts()
+      .then((items) => {
+        setProducts(items);
+      });
+  }, []);
 
-    return (
+  return (
             <div className="container">
                 <div className="row p-3">
                     <h2>Latest Products</h2>
@@ -27,7 +26,7 @@ function Home() {
                     <Products products={products}></Products>
                 </div>
             </div>
-    );
+  );
 }
 
 export default Home;

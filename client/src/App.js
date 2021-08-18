@@ -1,42 +1,56 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
+
+/** Bootstrap */
+import { Toast } from 'react-bootstrap';
+import ToastContainer from 'react-bootstrap/ToastContainer';
+
+/** Components */
+import { CartProvider } from 'react-use-cart';
+import { Header } from './components/Header';
+
+/** Pages */
 import Home from './pages/Home';
 import Category from './pages/Category';
 import ProductPage from './pages/Product';
-import { Header } from './components/Header';
-import { getAllCategories } from './services/CategoryService';
-import { CartProvider } from "react-use-cart";
-import { Toast } from 'react-bootstrap';
-import ToastContainer from 'react-bootstrap/ToastContainer'
 
+/** Services */
+import { getAllCategories } from './services/CategoryService';
+
+/** CSS */
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
+/**
+ * Main Aplication
+ * @returns {JSX.Element}
+ * @constructor
+ */
 function App() {
-    const [categories, setCategories] = useState([]);
-    const [show, setShow] = useState(false);
+  const [categories, setCategories] = useState([]);
+  const [show, setShow] = useState(false);
 
-    useEffect(() => {
-        getAllCategories()
-            .then(categories => {
-                setCategories(categories);
-            });
-    }, []);
+  useEffect(() => {
+    getAllCategories()
+      .then((items) => {
+        setCategories(items);
+      });
+  }, []);
 
-    return (
+  return (
         <BrowserRouter>
             <div className="App">
                 <CartProvider
                     id="reactstore"
-                    onItemAdd={item => { setShow(true) }}
-                    onItemUpdate={item => { setShow(true) }}
-                    onItemRemove={() => console.log(`Item removed!`)}
+                    onItemAdd={(item) => { setShow(true); }}
+                    onItemUpdate={(item) => { setShow(true); }}
+                    onItemRemove={() => console.log('Item removed!')}
                 >
                     <Header categories={ categories }></Header>
-                    <div className="container">
+                    <div>
                         <div>
-                            <ToastContainer className="p-3" position={ "top-center" }>
-                                <Toast position={ "top-end" } onClose={() => setShow(false)} show={ show } delay={ 3000 } autohide>
+                            <ToastContainer className="p-3" position={ 'top-end' }>
+                                <Toast onClose={() => setShow(false)} show={ show } delay={ 3000 } autohide>
                                     <Toast.Header>
                                         <strong className="me-auto">Success!</strong>
                                     </Toast.Header>
@@ -51,8 +65,7 @@ function App() {
                 </CartProvider>
             </div>
         </BrowserRouter>
-    );
+  );
 }
-
 
 export default App;
