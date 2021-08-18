@@ -8,6 +8,7 @@ import { Cart } from 'react-bootstrap-icons';
  * @returns {JSX.Element}
  * @constructor
  */
+// eslint-disable-next-line import/prefer-default-export
 export const MiniCart = ({ products }) => {
   const {
     cartTotal,

@@ -8,8 +8,10 @@ import { MiniCart } from './MiniCart';
  * @returns {JSX.Element}
  * @constructor
  */
+// eslint-disable-next-line import/prefer-default-export
 export const Header = ({ categories }) => {
   const MenuItem = (category, index) => {
+    /* eslint-disable no-underscore-dangle */
     const categoryId = `category-${category._id}`;
     const url = `/category/${category._id}`;
     return (
